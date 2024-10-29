@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveller Home</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        .hero {
+    background: url('https://i.ibb.co/z8Cx6T1/image-1.jpg') no-repeat center center/cover;
+    height: 76.3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: background 1.5s ease-in-out;
+    padding: 20px; 
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 75%;
+    padding: 20px; 
+}
+
+.hero-text h1 {
+    color: #fff;
+    font-size: 3.5em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e55d00;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-right: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto; 
+        padding: 40px 20px;
+    }
+
+    .hero-text {
+        max-width: 90%; 
+    }
+
+    .hero-text h1 {
+        font-size: 2.5em; 
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+
+    .btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+        margin-bottom: 10px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.8em; /
+    }
+
+    .btn {
+        font-size: 0.8em;
+        padding: 8px 15px;
+    }
+}
+
+
+     
+.brand-section {
+    padding: 20px 0;
+    background-color: #f4f4f4;
+}
+
+.brandlogo {
+    display: flex;
+    overflow: hidden; 
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    animation: roll 60s linear infinite; 
+}
+
+.logo-item {
+    flex: 0 0 auto; 
+    padding: 0 50px; 
+    transition: transform 0.3s ease; 
+}
+
+.logo-item:hover {
+    transform: scale(1.1); 
+}
+
+
+@keyframes roll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+  
+.contact-us {
+    background-color: #f4f4f4;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.contact-us h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact-us p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #e55d00;
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.3);
+}
+
+.contact-btn {
+    padding: 15px 30px;
+    background-color: #e55d00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #e55d00;
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .contact-us h2 {
+        font-size: 2em;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .contact-btn {
+        font-size: 0.9em;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-us h2 {
+        font-size: 1.8em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+    }
+
+    .contact-btn {
+        font-size: 0.8em;
+        padding: 10px 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="homepage.html">
+                    <img src="https://i.ibb.co/yXPGPbh/d1c27e8c477d6a4027efc4779abdc68c-1-removebg-preview-removebg-preview.png" alt="Traveller Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#">Discover</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Discover the Great Outdoors with Us</h1> <br>
+                <p>Find the perfect camping equipment for your next adventure.</p><br>
+                <button class="btn">Explore</button>
+                <button class="btn btn-secondary">Learn More</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <img src="images/Camping Tent.jpg" alt="Camping Tent" class="feature-image">
+                <h2>Quality Camping Tents for Every Adventure</h2>
+                <p>Experience the comfort and durability of our camping tents.</p>
+            </div>
+
+            <div class="feature">
+                <img src="images/traveling-bag.jpg" alt="Traveling Bag" class="feature-image">
+                <h2>Traveling Bags for Storage and Portability</h2>
+                <p>Carry your essentials with ease using our versatile bags.</p>
+            </div>
+
+            <div class="feature">
+                <img src="images/Camping Chairs.png" alt="Camping Chairs" class="feature-image">
+                <h2>Essential Camping Gear for Your Outdoor Adventures</h2>
+                <p>Discover a wide range of camping gear to enhance your experience.</p>
+            </div>
+
+            <div class="feature">
+                <img src="images/Sleeping Pads.jpeg" alt="Sleeping Pads" class="feature-image">
+                <h2>Comfortable Sleeping Pads for Restful Nights</h2>
+                <p>Get a good night’s rest with our quality sleeping pads.</p>
+            </div>
+        </section>
+
+        
+<section>
+    <div class="brandlogo">
+        <div class="logo-container">
+         
+            <div class="logo-item" draggable="true">
+                <img src="images/Global Trekkers.jpg" alt="Global Trekkers">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Wanderlust Outfitters.png" alt="Wanderlust Outfitters">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Trailblazer Equipment.png" alt="Trailblazer Equipment">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Horizon Travel Essentials.png" alt="Horizon Travel Essentials">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Nomad Outdoor Goods.png" alt="Nomad Outdoor Goods">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Expedition Pro.jpg" alt="Expedition Pro">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Pathfinder Gear.jpeg" alt="Pathfinder Gear">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Alpine Heights Supplies.jpg" alt="Alpine Heights Supplies">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Wilderness Wonders.jpg" alt="Wilderness Wonders">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Basecamp Essentials.jpeg" alt="Basecamp Essentials">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Global Trekkers.jpg" alt="Global Trekkers">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Wanderlust Outfitters.png" alt="Wanderlust Outfitters">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Trailblazer Equipment.png" alt="Trailblazer Equipment">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Horizon Travel Essentials.png" alt="Horizon Travel Essentials">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Nomad Outdoor Goods.png" alt="Nomad Outdoor Goods">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Expedition Pro.jpg" alt="Expedition Pro">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Pathfinder Gear.jpeg" alt="Pathfinder Gear">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Alpine Heights Supplies.jpg" alt="Alpine Heights Supplies">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Wilderness Wonders.jpg" alt="Wilderness Wonders">
+            </div>
+            <div class="logo-item" draggable="true">
+                <img src="images/Basecamp Essentials.jpeg" alt="Basecamp Essentials">
+            </div>
+        </div>
+    </div>
+</section>
+        <div class="reviews">
+    <h2>What Our Customers Say</h2>
+    <div class="reviews-container">
+        <div class="review-card">
+            <div class="review-rating">
+                ★★★★★
+            </div>
+            <p>"Amazing experience at the lakeside camping site. The gear was perfect for our stay."</p>
+            <div class="reviewer-info">
+                <img src="images/re.png" alt="Reviewer Avatar" class="reviewer-avatar">
+                <span class="reviewer-name">- Jordan M.</span>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-rating">
+                ★★★★★
+            </div>
+            <p>"The beach camping setup was fantastic. Great quality and very comfortable."</p>
+            <div class="reviewer-info">
+                <img src="images/re.png" alt="Reviewer Avatar" class="reviewer-avatar">
+                <span class="reviewer-name">- Casey W.</span>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-rating">
+                ★★★★★
+            </div>
+            <p>"Forest exploration was a breeze with Traveller's gear. Highly recommend for nature lovers."</p>
+            <div class="reviewer-info">
+                <img src="images/re.png" alt="Reviewer Avatar" class="reviewer-avatar">
+                <span class="reviewer-name">- Jamie L</span>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-rating">
+                ★★★★★
+            </div>
+            <p>"The camping gear from Traveller is top-notch! Made our mountain hike unforgettable."</p>
+            <div class="reviewer-info">
+                <img src="images/re.png" alt="Reviewer Avatar" class="reviewer-avatar">
+                <span class="reviewer-name">- Casey W.</span>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+    <!-- Banner Section -->
+        <div class="banner">
+            <div class="banner-content">
+                <h1>Your Ultimate Destination for Premium Traveling Equipment</h1>
+                <a href="shop.php" class="btn">Shop Now</a>
+            </div>
+        </div>
+        <section>
+            <div class="services">
+                <div class="service">
+                  <i class="icon">🚚</i>
+                  <h3>Free Shipping</h3>
+                  <p>Delight in seamless free shipping, enhancing your shopping experience. Navigate our diverse collection, where cost savings meet product joy.</p>
+                </div>
+                <div class="service">
+                  <i class="icon">🔒</i>
+                  <h3>Secure Payments</h3>
+                  <p>Shop with confidence using our secure payment methods. Your transactions are protected, providing peace of mind for a worry-free shopping.</p>
+                </div>
+                <div class="service">
+                  <i class="icon">📍</i>
+                  <h3>Order Tracking</h3>
+                  <p>Track your order effortlessly with our streamlined system. Stay informed and in control as your purchase makes its way to your doorstep.</p>
+                </div>
+                <div class="service">
+                  <i class="icon">↩️</i>
+                  <h3>Easy Returns</h3>
+                  <p>Celebrate worry-free shopping with our hassle-free returns — because we’re here to make your shopping experience as smooth as possible.</p>
+                </div>
+              </div>                            
+        </section>
+        <section class="contact-us">
+            <h2>Contact Us</h2>
+            <p></p>
+            <form action="#" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="btn contact-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="homepage.html">
+                        <img src="https://i.ibb.co/yXPGPbh/d1c27e8c477d6a4027efc4779abdc68c-1-removebg-preview-removebg-preview.png" alt="Traveller Logo">
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="news.html">FAQs</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-contact">
+                <h3>Contact Information</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Adventure Street, Colombo, Sri Lanka</li>
+                    <li><i class="fas fa-phone-alt"></i> +94 123 456 789</li>
+                    <li><i class="fas fa-envelope"></i> support@traveller.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Traveller. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+        const images = [
+            'https://i.ibb.co/dDz3nWB/image-2.jpg',
+            'https://i.ibb.co/FYSJ5kG/image.jpg',
+            'https://i.ibb.co/Ltb60c4/image-1.jpg'
+        ];
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const heroSection = document.querySelector('.hero');
+            currentIndex = (currentIndex + 1) % images.length;
+            heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+        }
+
+        setInterval(changeBackground, 5000);
+    </script>
+    <script src="homepage.js"></script>
+</body>
+</html>

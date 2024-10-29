@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .products-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            width: 200px;
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+        }
+        .product-price {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .product-description {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
+        }
+        #cart-details {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #cart-details th, #cart-details td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Product Shop</h1>
+<div class="products-grid">
+    <div class="product-card">
+        <img src="images/p2.1.jpg" alt="Ultralight Portable Backpacking Large Hammock" class="product-image">
+        <h3>Ultralight Portable Backpacking Large Hammock</h3>
+        <div class="product-price">$49</div>
+        <p class="product-description">Experience the great outdoors with this ultralight portable hammock.</p>
+        <input type="number" class="product-quantity" value="1" min="1" style="width: 60px;">
+        <button onclick="addToCart(1, 'Ultralight Portable Backpacking Large Hammock', 49)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="images/p2.2.jpg" alt="Kuku Large Hammock" class="product-image">
+        <h3>Kuku Large Hammock</h3>
+        <div class="product-price">$9</div>
+        <p class="product-description">Perfect for camping, hiking, and relaxation.</p>
+        <input type="number" class="product-quantity" value="1" min="1" style="width: 60px;">
+        <button onclick="addToCart(2, 'Kuku Large Hammock', 9)">Add to Cart</button>
+    </div>
+</div>
+
+<h2>Shopping Cart</h2>
+<table id="cart-details">
+    <thead>
+        <tr>
+            <th>Product Description</th>
+            <th>Quantity</th>
+            <th>Price Details</th>
+            <th>Total Price</th>
+            <th>Remove Item</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Cart items will be populated here -->
+    </tbody>
+</table>
+
+<script>
+    let cart = [];
+
+    function addToCart(productId, productName, price) {
+        const quantityInput = document.querySelector(`.product-card:nth-child(${productId}) .product-quantity`);
+        const quantity = parseInt(quantityInput.value);
+
+        fetch('shop.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'productId': productId,
+                'productName': productName,
+                'quantity': quantity,
+                'price': price
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            cart = data; // Update the local cart variable with the response
+            updateCartDetails(); // Refresh the cart display
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function updateCartDetails() {
+        const cartDetailsBody = document.querySelector('#cart-details tbody');
+        cartDetailsBody.innerHTML = ''; // Clear existing table data
+
+        cart.forEach(item => {
+            const totalPrice = item.quantity * item.price;
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>${item.productName}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.price.toFixed(2)} each</td>
+                <td>$${totalPrice.toFixed(2)}</td>
+                <td><button onclick="removeFromCart(${item.id})">Remove</button></td>
+            `;
+
+            cartDetailsBody.appendChild(row);
+        });
+    }
+
+    function removeFromCart(productId) {
+        fetch('shop.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'removeId': productId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            cart = data; // Update the local cart variable with the response
+            updateCartDetails(); // Refresh the cart display
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+
+</body>
+</html>
